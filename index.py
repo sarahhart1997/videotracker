@@ -2,11 +2,11 @@ import cv2
 import numpy as np
 import tensorflow as tf
 
-# Function to load the pre-trained model
-def load_model(model_path):
+# Load the pre-trained model
+def load_model(model_path): ''
     return tf.saved_model.load(model_path)
 
-# Function to perform object detection on a single image
+# Object detection on a single image
 def detect_objects(image, model):
     input_tensor = tf.convert_to_tensor(image)
     input_tensor = input_tensor[tf.newaxis,...]
@@ -20,7 +20,7 @@ def detect_objects(image, model):
 
     return detections
 
-# Function to draw bounding boxes on the image
+# Draw bounding boxes on the image
 def draw_boxes(image, detections, threshold=0.5):
     height, width, _ = image.shape
 
